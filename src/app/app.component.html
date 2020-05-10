@@ -1,1 +1,10 @@
-<p> Waseem Khan</p>
+<div class="app--title">
+    <p>{{ title }}</p>
+</div>
+
+
+<!-- [(ngModel)] is used for forms inputs where we can listen the user.-->
+<div>
+    <input type="text" [(ngModel)]="name">
+    <p>{{ name }}</p>
+</div>
