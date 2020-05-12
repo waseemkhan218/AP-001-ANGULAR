@@ -1,23 +1,38 @@
 <!-- WORK: String interpolation: Anything that return string at the end can be used.
     EX: {{'server'}}, property,number or method -->
-<p>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+
+<!-- <p>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p> -->
 
 <!-- WORK: Property Binding:  disabled is just a normal HTML property. 
      We are property binding it with allowNew server-->
-<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+
+<!-- <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button> -->
+
 <!-- WORK: String Interpolation vs Property Binding -->
-<p>{{ allowNewServer }}</p>
-<p [innerText]="allowNewServer"></p>
+
+<!-- <p>{{ allowNewServer }}</p>
+<p [innerText]="allowNewServer"></p> -->
 
 <!-- WORK: Event Binding: listening to user. the syntax is (click)="<method-name>"-->
-<label>Server Name</label>
+
+<!-- <label>Server Name</label>
 <input type="text" class="form-control" (input)="onUpdateServerName($event)">
 <button class="btn btn-secondary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <p>{{ serverName }}</p>
-<p>{{ serverCreationStatus }}</p>
+<p>{{ serverCreationStatus }}</p> -->
 
 <!-- WORK: ngModal directive can be helpful for two-way binding. -->
-
-<label>Two-way binding</label>
+<!-- <label>Two-way binding</label>
 <input type="text" class="form-control" [(ngModel)]="serverName">
-{{ serverName }}
+{{ serverName }} -->
+
+
+<!-- WORK: All form of data binding.-->
+
+<label>All form of binding</label>
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
+<p>{{ serverName }}</p>
+<p>{{ serverCreationStatus }}</p>
+
+<p>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>

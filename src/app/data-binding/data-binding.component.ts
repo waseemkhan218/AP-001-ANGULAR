@@ -32,8 +32,9 @@ export class DataBindingComponent implements OnInit {
   }
 
   // WORK: Event Binding: listening to user and displaying the text
+  // WORK: Combining all forms of Databinding
   onCreateServer() {
-    this.serverCreationStatus = 'Server is created now.';
+    this.serverCreationStatus = 'Server is created now. ' + this.serverName;
   }
 
   //WORK: Event Binding: Passing and using data.
