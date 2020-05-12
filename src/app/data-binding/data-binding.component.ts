@@ -5,14 +5,27 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './data-binding.component.html',
   styleUrls: ['./data-binding.component.css']
 })
-export class DataBindingComponent {
-// WORK: String interpolation: Displaying this two values.
-public serverId: number = 10;
-public serverStatus: string = 'Offline';
-public serverZone:string = 'USA';
+export class DataBindingComponent implements OnInit {
+  // WORK: String interpolation: Displaying this two values.
+  public serverId: number = 10;
+  public serverStatus: string = 'Offline';
+  public serverZone: string = 'USA';
+  // WORK: Property Binding: Displaying a new button which allow a user to add a new server.
+  public allowNewServer: boolean = false;
 
-getServerZone() {
-  return this.serverZone;
-}
+  constructor() {
+    // WORK: Property Binding: SetTimeout on button 
+    //() => {} is a ES6 function which is similar to function() {}.
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
+  }
+
+  ngOnInit(): void {
+  }
+
+  getServerZone() {
+    return this.serverZone;
+  }
 
 }

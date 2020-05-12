@@ -2,3 +2,6 @@
     EX: {{'server'}}, property,number or method -->
 <p>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
 
+<!-- WORK: Property Binding:  disabled is just a normal HTML property. 
+     We are property binding it with allowNew server-->
+<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
