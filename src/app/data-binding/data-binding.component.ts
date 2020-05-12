@@ -12,6 +12,8 @@ export class DataBindingComponent implements OnInit {
   public serverZone: string = 'USA';
   // WORK: Property Binding: Displaying a new button which allow a user to add a new server.
   public allowNewServer: boolean = false;
+  // WORK: Event Binding: Listening to user.
+  public serverCreationStatus: string = 'No server was created.';
 
   constructor() {
     // WORK: Property Binding: SetTimeout on button 
@@ -26,6 +28,10 @@ export class DataBindingComponent implements OnInit {
 
   getServerZone() {
     return this.serverZone;
+  }
+
+  onCreateServer(number: any) {
+    this.serverCreationStatus = 'Server is created now.';
   }
 
 }

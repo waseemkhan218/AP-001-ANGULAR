@@ -8,3 +8,7 @@
 <!-- WORK: String Interpolation vs Property Binding -->
 <p>{{ allowNewServer }}</p>
 <p [innerText]="allowNewServer"></p>
+
+<!-- WORK: Event Binding: listening to user. the syntax is (click)="<method-name>"-->
+<button class="btn btn-secondary" [disabled]="!allowNewServer" (click)="onCreateServer(2)">Add Server</button>
+<p>{{ serverCreationStatus }}</p>
