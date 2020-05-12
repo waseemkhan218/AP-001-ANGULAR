@@ -11,8 +11,13 @@
 
 <!-- WORK: Event Binding: listening to user. the syntax is (click)="<method-name>"-->
 <label>Server Name</label>
-<input type="text" class="form-control"
-(input)="onUpdateServerName($event)">
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
 <button class="btn btn-secondary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <p>{{ serverName }}</p>
 <p>{{ serverCreationStatus }}</p>
+
+<!-- WORK: ngModal directive can be helpful for two-way binding. -->
+
+<label>Two-way binding</label>
+<input type="text" class="form-control" [(ngModel)]="serverName">
+{{ serverName }}

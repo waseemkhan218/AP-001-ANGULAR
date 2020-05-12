@@ -14,7 +14,7 @@ export class DataBindingComponent implements OnInit {
   public allowNewServer: boolean = false;
   // WORK: Event Binding: Listening to user.
   public serverCreationStatus: string = 'No server was created.';
-  public serverName: string = '';
+  public serverName: string = 'TestServer';
 
   constructor() {
     // WORK: Property Binding: SetTimeout on button 
@@ -26,7 +26,7 @@ export class DataBindingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-// WORK: String interpolation
+  // WORK: String interpolation
   getServerZone() {
     return this.serverZone;
   }
@@ -36,6 +36,7 @@ export class DataBindingComponent implements OnInit {
     this.serverCreationStatus = 'Server is created now.';
   }
 
+  //WORK: Event Binding: Passing and using data.
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
