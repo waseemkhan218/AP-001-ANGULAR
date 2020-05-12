@@ -10,5 +10,9 @@
 <p [innerText]="allowNewServer"></p>
 
 <!-- WORK: Event Binding: listening to user. the syntax is (click)="<method-name>"-->
-<button class="btn btn-secondary" [disabled]="!allowNewServer" (click)="onCreateServer(2)">Add Server</button>
+<label>Server Name</label>
+<input type="text" class="form-control"
+(input)="onUpdateServerName($event)">
+<button class="btn btn-secondary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<p>{{ serverName }}</p>
 <p>{{ serverCreationStatus }}</p>
