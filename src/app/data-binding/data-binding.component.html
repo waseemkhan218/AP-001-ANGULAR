@@ -5,3 +5,6 @@
 <!-- WORK: Property Binding:  disabled is just a normal HTML property. 
      We are property binding it with allowNew server-->
 <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+<!-- WORK: String Interpolation vs Property Binding -->
+<p>{{ allowNewServer }}</p>
+<p [innerText]="allowNewServer"></p>
