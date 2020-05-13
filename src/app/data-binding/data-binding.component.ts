@@ -21,6 +21,9 @@ export class DataBindingComponent implements OnInit {
   // WORK: Directives: Structural: adding a boolean
   public serverCreated: boolean = false;
 
+  // WORK: Directives: Structural: ngFor : array of servers
+  public servers = ['TestServer'];
+
   constructor() {
 
     // WORK: Directives: Attribute: ngStyle
@@ -46,6 +49,9 @@ export class DataBindingComponent implements OnInit {
     //WORK: Directive: 
     this.serverCreated = true;
     this.serverCreationStatus = 'Server is created now. ' + this.serverName;
+
+    //WORK: Directive: Structural: ngFor : adding new servers on create
+    this.servers.push(this.serverName);
   }
 
   //WORK: Event Binding: Passing and using data.

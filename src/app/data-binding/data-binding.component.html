@@ -49,11 +49,20 @@
     <p>No server was created...!!!</p>
 </ng-template>
 
+<!-- WORK: Directives: Structural: *ngFor: let server is a local variable and servers is a property what we are looping  -->
+<div *ngFor="let server of servers">
+    <p [ngStyle]="{backgroundColor: getColor()}"
+       [ngClass]="{online: getServerColor()}">
+       {{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+    </div>
+
 <h5>Attribute Directives</h5>
 <!-- WORK: Directives: Attribute: ngStyle and ngClass -->
+
 <p [ngStyle]="{backgroundColor: getColor()}"
    [ngClass]="{online: getServerColor()}"
 >{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+
+<!-- WORK: Directives: Attribute: ngStyle -->
 <p [ngStyle]="{backgroundColor: getColor()}"
-   [ngClass]="{online: getServerColor()}"
 >{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
