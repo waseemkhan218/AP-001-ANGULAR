@@ -28,41 +28,48 @@
 
 
 <!-- WORK: All form of data binding.-->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12" class="row--styling">
+            <div>
+                <label><h5>All form of binding</h5></label>
+                <input type="text" class="form-control" [(ngModel)]="serverName">
+                <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New
+                    Server</button>
+                <p>{{ serverName }}</p>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <h5>Structural Directives</h5>
+            <!-- WORK: Directives: structural directive *ngIf -->
 
-<label>All form of binding</label>
-<input type="text" class="form-control" [(ngModel)]="serverName">
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
-<p>{{ serverName }}</p>
+            <!-- <p *ngIf="serverCreated">{{ serverCreationStatus }}</p> -->
 
-<h5>Structural Directives</h5>
-<!-- WORK: Directives: structural directive *ngIf -->
+            <!-- WORK: Directives: Structural *ngIf and else. An alternative way -->
+            <!-- <p *ngIf="!serverCreated">{{ serverCreationStatus }}</p> -->
 
-<!-- <p *ngIf="serverCreated">{{ serverCreationStatus }}</p> -->
+            <!-- WORK: Directives: Structural: *ngIf and else -->
+            <p *ngIf="serverCreated ; else noServer">{{ serverCreationStatus }}</p>
+            <!-- # is basically a local references also called as markup -->
+            <ng-template #noServer>
+                <p>No server was created...!!!</p>
+            </ng-template>
 
-<!-- WORK: Directives: Structural *ngIf and else. An alternative way -->
-<!-- <p *ngIf="!serverCreated">{{ serverCreationStatus }}</p> -->
+            <!-- WORK: Directives: Structural: *ngFor: let server is a local variable and servers is a property what we are looping  -->
+            <div *ngFor="let server of servers">
+                <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: getServerColor()}">
+                    {{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+            </div>
 
-<!-- WORK: Directives: Structural: *ngIf and else -->
-<p *ngIf="serverCreated ; else noServer">{{ serverCreationStatus }}</p>
-<!-- # is basically a local references also called as markup -->
-<ng-template #noServer>
-    <p>No server was created...!!!</p>
-</ng-template>
+            <h5>Attribute Directives</h5>
+            <!-- WORK: Directives: Attribute: ngStyle and ngClass -->
 
-<!-- WORK: Directives: Structural: *ngFor: let server is a local variable and servers is a property what we are looping  -->
-<div *ngFor="let server of servers">
-    <p [ngStyle]="{backgroundColor: getColor()}"
-       [ngClass]="{online: getServerColor()}">
-       {{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+            <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: getServerColor()}">{{'Server'}} with ID
+                {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+
+            <!-- WORK: Directives: Attribute: ngStyle -->
+            <p [ngStyle]="{backgroundColor: getColor()}">{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on
+                {{ getServerZone() }}</p>
+        </div>
     </div>
-
-<h5>Attribute Directives</h5>
-<!-- WORK: Directives: Attribute: ngStyle and ngClass -->
-
-<p [ngStyle]="{backgroundColor: getColor()}"
-   [ngClass]="{online: getServerColor()}"
->{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
-
-<!-- WORK: Directives: Attribute: ngStyle -->
-<p [ngStyle]="{backgroundColor: getColor()}"
->{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+</div>
