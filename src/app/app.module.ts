@@ -7,13 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
+import { DatabindingAssignmentComponent } from './databinding-assignment/databinding-assignment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServerComponent,
     ServersComponent,
-    DataBindingComponent
+    DataBindingComponent,
+    DatabindingAssignmentComponent
   ],
   imports: [
     BrowserModule,
