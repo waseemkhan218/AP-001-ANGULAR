@@ -1,3 +1,8 @@
 h5 {
     color:crimson;
 }
+
+/* WORK: Directive: attribute: style for ngClass */
+.online {
+    color: white;
+}

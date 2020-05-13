@@ -17,13 +17,13 @@ export class DataBindingComponent implements OnInit {
   // WORK: Event Binding: Listening to user.
   public serverCreationStatus: string = 'No server was created.';
   public serverName: string = 'TestServer';
-  
+
   // WORK: Directives: Structural: adding a boolean
   public serverCreated: boolean = false;
 
   constructor() {
 
-    // WORK: Directives: Attribute: 
+    // WORK: Directives: Attribute: ngStyle
     this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
 
     // WORK: Property Binding: SetTimeout on button 
@@ -53,9 +53,13 @@ export class DataBindingComponent implements OnInit {
     this.serverName = (<HTMLInputElement>event.target).value;
   }
 
-  // WORK: Directives: Attribute: method
+  // WORK: Directives: Attribute: method for ngStyle
   getColor() {
     return this.serverStatus === 'online' ? 'green' : 'red';
   }
 
+  // WORK: Directives: Attribute: method for ngClass
+  getServerColor() {
+    return this.serverStatus === 'online';
+  }
 }

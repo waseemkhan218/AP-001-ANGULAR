@@ -50,6 +50,10 @@
 </ng-template>
 
 <h5>Attribute Directives</h5>
-<!-- WORK: Directives: Attribute: ngStyle -->
-<p [ngStyle]="{backgroundColor: getColor()}">{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
-<p [ngStyle]="{backgroundColor: getColor()}">{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+<!-- WORK: Directives: Attribute: ngStyle and ngClass -->
+<p [ngStyle]="{backgroundColor: getColor()}"
+   [ngClass]="{online: getServerColor()}"
+>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+<p [ngStyle]="{backgroundColor: getColor()}"
+   [ngClass]="{online: getServerColor()}"
+>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
