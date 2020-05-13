@@ -34,18 +34,22 @@
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
 <p>{{ serverName }}</p>
 
-<h6>Structural Directives</h6>
+<h5>Structural Directives</h5>
 <!-- WORK: Directives: structural directive *ngIf -->
 
 <!-- <p *ngIf="serverCreated">{{ serverCreationStatus }}</p> -->
 
-<!-- WORK: Directives: *ngIf and else. An alternative way -->
+<!-- WORK: Directives: Structural *ngIf and else. An alternative way -->
 <!-- <p *ngIf="!serverCreated">{{ serverCreationStatus }}</p> -->
 
-<!-- WORK: Directives: *ngIf and else -->
+<!-- WORK: Directives: Structural: *ngIf and else -->
 <p *ngIf="serverCreated ; else noServer">{{ serverCreationStatus }}</p>
 <!-- # is basically a local references also called as markup -->
 <ng-template #noServer>
     <p>No server was created...!!!</p>
 </ng-template>
-<p>{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+
+<h5>Attribute Directives</h5>
+<!-- WORK: Directives: Attribute: ngStyle -->
+<p [ngStyle]="{backgroundColor: getColor()}">{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>
+<p [ngStyle]="{backgroundColor: getColor()}">{{'Server'}} with ID {{ serverId }} is {{ serverStatus }} is on {{ getServerZone() }}</p>

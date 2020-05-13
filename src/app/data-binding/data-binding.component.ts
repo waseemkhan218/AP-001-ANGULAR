@@ -10,15 +10,22 @@ export class DataBindingComponent implements OnInit {
   public serverId: number = 10;
   public serverStatus: string = 'Offline';
   public serverZone: string = 'USA';
+
   // WORK: Property Binding: Displaying a new button which allow a user to add a new server.
   public allowNewServer: boolean = false;
+
   // WORK: Event Binding: Listening to user.
   public serverCreationStatus: string = 'No server was created.';
   public serverName: string = 'TestServer';
-  // WORK: Directives: adding a boolean
+  
+  // WORK: Directives: Structural: adding a boolean
   public serverCreated: boolean = false;
 
   constructor() {
+
+    // WORK: Directives: Attribute: 
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
+
     // WORK: Property Binding: SetTimeout on button 
     //() => {} is a ES6 function which is similar to function() {}.
     setTimeout(() => {
@@ -44,6 +51,11 @@ export class DataBindingComponent implements OnInit {
   //WORK: Event Binding: Passing and using data.
   onUpdateServerName(event: Event) {
     this.serverName = (<HTMLInputElement>event.target).value;
+  }
+
+  // WORK: Directives: Attribute: method
+  getColor() {
+    return this.serverStatus === 'online' ? 'green' : 'red';
   }
 
 }
