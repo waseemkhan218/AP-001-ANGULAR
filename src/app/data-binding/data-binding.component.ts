@@ -15,6 +15,8 @@ export class DataBindingComponent implements OnInit {
   // WORK: Event Binding: Listening to user.
   public serverCreationStatus: string = 'No server was created.';
   public serverName: string = 'TestServer';
+  // WORK: Directives: adding a boolean
+  public serverCreated: boolean = false;
 
   constructor() {
     // WORK: Property Binding: SetTimeout on button 
@@ -34,6 +36,8 @@ export class DataBindingComponent implements OnInit {
   // WORK: Event Binding: listening to user and displaying the text
   // WORK: Combining all forms of Databinding
   onCreateServer() {
+    //WORK: Directive: 
+    this.serverCreated = true;
     this.serverCreationStatus = 'Server is created now. ' + this.serverName;
   }
 
