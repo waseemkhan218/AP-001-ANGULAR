@@ -11,7 +11,8 @@ export class CockpitComponent implements OnInit {
   // Make sure you have Event Emitter from angular core. This helps to emit this new object.
 
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
-  @Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+  // WORK: Assigning an alias to Custom events
+  @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   newServerName = '';
   newServerContent = '';
 
