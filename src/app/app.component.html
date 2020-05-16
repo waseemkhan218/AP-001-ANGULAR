@@ -1,5 +1,8 @@
 <div class="container">
-  <app-cockpit></app-cockpit>
+  <!-- WORK: binding to custom events: we are getting events from cockpit components. -->
+
+  <app-cockpit (serverCreated)="onServerAdded($event)"
+  (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
   <hr>
   <!-- WORK: Property binding and event binding: -->
 
@@ -8,7 +11,10 @@
 </div> -->
 
   <!-- WORK: Assigning to Custom Properties: -->
-  
-  <app-server-element *ngFor="let serverElement of serverElements"
-  [SrvElement]="serverElement"></app-server-element>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements" [SrvElement]="serverElement">
+      </app-server-element>
+    </div>
+  </div>
 </div>
