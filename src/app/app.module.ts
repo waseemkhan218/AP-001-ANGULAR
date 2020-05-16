@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
-// We need forms module when using ngModal 
 import { FormsModule } from '@angular/forms';
+
+
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
