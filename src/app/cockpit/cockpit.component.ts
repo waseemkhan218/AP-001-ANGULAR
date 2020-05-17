@@ -13,7 +13,9 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   // WORK: Assigning an alias to Custom events
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
-  newServerName = '';
+
+  // WORK: Local template References: We don't need new servername property for onAddServer.
+  // newServerName = '';
   newServerContent = '';
 
   constructor() { }
@@ -21,18 +23,36 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddServer() {
+  // onAddServer() {
+  //   // WORK: Binding to custom events: serverCreated is a property which we are emitting with server name and server content.
+  //  this.serverCreated.emit({
+  //    serverName: this.newServerName,
+  //    serverContent: this.newServerContent
+  //  });
+  // }
+
+  // onAddBlueprint() {
+  //    // WORK: Binding to custom events: blueprintCreated is a property which we are emitting with server name and server content.
+  // this.blueprintCreated.emit({
+  //   serverName: this.newServerName,
+  //   serverContent: this.newServerContent
+  // });
+  // }
+
+   // WORK: Local template references: getting a serverNameInput to onAddServer method.
+   onAddServer(serverName) {
+    console.log("Input references: ", serverName.value);
     // WORK: Binding to custom events: serverCreated is a property which we are emitting with server name and server content.
    this.serverCreated.emit({
-     serverName: this.newServerName,
+     serverName: serverName.value,
      serverContent: this.newServerContent
    });
   }
 
-  onAddBlueprint() {
+  onAddBlueprint(serverName) {
      // WORK: Binding to custom events: blueprintCreated is a property which we are emitting with server name and server content.
   this.blueprintCreated.emit({
-    serverName: this.newServerName,
+    serverName: serverName.value,
     serverContent: this.newServerContent
   });
   }
