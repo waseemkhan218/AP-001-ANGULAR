@@ -40,7 +40,7 @@ export class CockpitComponent implements OnInit {
   // }
 
    // WORK: Local template references: getting a serverNameInput to onAddServer method.
-   onAddServer(serverName) {
+   onAddServer(serverName: HTMLInputElement) {
     console.log("Input references: ", serverName.value);
     // WORK: Binding to custom events: serverCreated is a property which we are emitting with server name and server content.
    this.serverCreated.emit({
