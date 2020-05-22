@@ -18,17 +18,17 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   //WORK: Assigning an alias to custom properties
 
   @Input('SrvElement') element: {type: string, name: string, content: string};
-  // LIFECYCLE HOOKS: Getting name as a input from app component.
+  // WORK: LIFECYCLE HOOKS: Getting name as a input from app component.
   @Input() name: string;
-  // LIFECYCLE HOOKS: Template access: we are trying to access the 'heading' from template
+  // WORK: LIFECYCLE HOOKS: Template access: we are trying to access the 'heading' from template
   @ViewChild('heading') header: ElementRef;
-  // LIFECYCLE HOOKS: Template access: we are trying to access the 'paragraph' from app component template (view or HTML).
+  // WORK: LIFECYCLE HOOKS: Template access: we are trying to access the 'paragraph' from app component template (view or HTML).
   @ContentChild('contentParagraph') paragraph: ElementRef;
   constructor() { 
     console.log('Constructor called...!!!');
   }
 
-  // LIFECYCLE HOOKS: ngOnChanges() is enough to log. but, it's a good practice to implement it.
+  // WORK: LIFECYCLE HOOKS: ngOnChanges() is enough to log. but, it's a good practice to implement it.
   ngOnChanges(changes: SimpleChanges) {
     console.log('ngOnChanges called...!!!');
     console.log(changes);
@@ -36,7 +36,7 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   ngOnInit(): void {
     console.log('ngOnInit called...!!!');
-    // LIFECYCLE HOOKS: Template access:  We can't access the element in ngOnInit because the element is not
+    // WORK: LIFECYCLE HOOKS: Template access:  We can't access the element in ngOnInit because the element is not
     // present at this moment in DOM.
     console.log('text content for view child--->', this.header.nativeElement.textContent);
     console.log('text content for content child--->', this.paragraph.nativeElement.textContent);
@@ -46,7 +46,7 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
     console.log('ngDoCheck called...!!!');
   }
 
-  // LIFECYCLE HOOKS: contentchild: We can access our child (other component template) only in aftercontentinit
+  // WORK: LIFECYCLE HOOKS: contentchild: We can access our child (other component template) only in aftercontentinit
   // NOTE: After constructor, ngOnChanges, ngOnInit, NgDoCheck ---> AfterContentInit invoke and load the child
   // child view or dependent view then aftercontentChecked called. and later, viewInit and viewChecked called.
   ngAfterContentInit() {
@@ -60,7 +60,7 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called...!!!');
-    // LIFECYCLE HOOKS: Template access:  We can access the element in ngAfterViewInit because the DOM is loaded
+    // WORK: LIFECYCLE HOOKS: Template access:  We can access the element in ngAfterViewInit because the DOM is loaded
     // element is present to access. 
     // NOTE: If you want to access an element when user click on something. Then, it's better to use the
     // # Local references variables. 
