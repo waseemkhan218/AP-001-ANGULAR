@@ -27,4 +27,14 @@ export class AppComponent {
       content: blueprintData.serverContent
     });
   }
+
+  // LIFECYCLE HOOKS: this event is for ngOnChanges in server element to call. 
+  onChangesFirst() {
+    this.serverElements[0].name = 'changes';
+  }
+
+  // LIFECYCLE HOOKS: this event is for ngOnDestroy in server element to call. 
+  onDestroyFirst() {
+    this.serverElements.splice(0, 1);
+  }
 }

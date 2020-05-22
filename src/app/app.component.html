@@ -13,7 +13,13 @@
   <!-- WORK: Assigning an alias to Custom Properties: -->
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let serverElement of serverElements" [SrvElement]="serverElement">
+      <!-- LIFECYCLE HOOKS: Creating two buttons to change and destroy the element -->
+      <!-- And passing name to server element component -->
+      <button  class="btn btn-primary" (click)="onChangesFirst()">Change first element</button>
+      <button  class="btn btn-danger" (click)="onDestroyFirst()">Destroy first element</button>
+      <app-server-element *ngFor="let serverElement of serverElements"
+      [SrvElement]="serverElement"
+      [name]="serverElement.name">
         <!-- WORK: whatever we add between the app-server-element tags will be lost lost. it's a angular
         default behavior -->
         <p>
