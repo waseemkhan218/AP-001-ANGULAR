@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChange, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChange, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -22,6 +22,8 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input() name: string;
   // LIFECYCLE HOOKS: Template access: we are trying to access the 'heading' from template
   @ViewChild('heading') header: ElementRef;
+  // LIFECYCLE HOOKS: Template access: we are trying to access the 'paragraph' from app component template (view or HTML).
+  @ContentChild('contentParagraph') paragraph: ElementRef;
   constructor() { 
     console.log('Constructor called...!!!');
   }
@@ -36,15 +38,20 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
     console.log('ngOnInit called...!!!');
     // LIFECYCLE HOOKS: Template access:  We can't access the element in ngOnInit because the element is not
     // present at this moment in DOM.
-    console.log('text content--->', this.header.nativeElement.textContent);
+    console.log('text content for view child--->', this.header.nativeElement.textContent);
+    console.log('text content for content child--->', this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
     console.log('ngDoCheck called...!!!');
   }
 
+  // LIFECYCLE HOOKS: contentchild: We can access our child (other component template) only in aftercontentinit
+  // NOTE: After constructor, ngOnChanges, ngOnInit, NgDoCheck ---> AfterContentInit invoke and load the child
+  // child view or dependent view then aftercontentChecked called. and later, viewInit and viewChecked called.
   ngAfterContentInit() {
     console.log('ngAfterContentInit called...!!!');
+    console.log('text content for content child--->', this.paragraph.nativeElement.textContent);
   }
 
   ngAfterContentChecked() {

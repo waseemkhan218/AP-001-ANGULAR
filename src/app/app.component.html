@@ -22,7 +22,8 @@
       [name]="serverElement.name">
         <!-- WORK: whatever we add between the app-server-element tags will be lost lost. it's a angular
         default behavior -->
-        <p>
+        <!-- LIFECYCLE HOOKS: Content child: accessing template in child component -->
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
       </p>
