@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChange, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, OnChanges, SimpleChange, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -20,6 +20,8 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
   @Input('SrvElement') element: {type: string, name: string, content: string};
   // LIFECYCLE HOOKS: Getting name as a input from app component.
   @Input() name: string;
+  // LIFECYCLE HOOKS: Template access: we are trying to access the 'heading' from template
+  @ViewChild('heading') header: ElementRef;
   constructor() { 
     console.log('Constructor called...!!!');
   }
@@ -32,6 +34,9 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   ngOnInit(): void {
     console.log('ngOnInit called...!!!');
+    // LIFECYCLE HOOKS: Template access:  We can't access the element in ngOnInit because the element is not
+    // present at this moment in DOM.
+    console.log('text content--->', this.header.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -48,6 +53,12 @@ AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called...!!!');
+    // LIFECYCLE HOOKS: Template access:  We can access the element in ngAfterViewInit because the DOM is loaded
+    // element is present to access. 
+    // NOTE: If you want to access an element when user click on something. Then, it's better to use the
+    // # Local references variables. 
+    // View child is used when you want something as soon as DOM is loaded.
+    console.log('text content--->', this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
