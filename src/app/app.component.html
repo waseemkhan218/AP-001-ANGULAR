@@ -31,7 +31,9 @@
                 <!-- WORK: Basic directive -->
                 <p appBasicHighlight>Style me with a basic highlight</p>
                 <!-- WORK: Better directive -->
-                <p appBetterHightlight>Style me with a basic highlight</p>
+                <!-- We are property binding to appBetterHighlight with a alias on directive
+                     DefaultColor is actually a [defaultColor]= "'yellow'" -->
+                <p [appBetterHightlight]="'red'" defaultColor= "yellow">Style me with a basic highlight</p>
             </div>
         </div>
     </div>

@@ -1,21 +1,23 @@
 /* WORK: Better directive to render the style in app component */
 
-import { Directive, Renderer2, OnInit, ElementRef, HostListener, HostBinding } from '@angular/core';
+import { Directive, Renderer2, OnInit, ElementRef, HostListener, HostBinding, Input } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHightlight]'
 })
 export class BetterHightlightDirective implements OnInit {
-
+@Input() defaultColor: string = 'transparent';
+@Input('appBetterHightlight') highlightColor: string = 'blue';
   // WORK: HostBinding: We can the previous which is a better way of accessing depending on the use case.
   // But here, We are just trying to access the style from DOM. So, we can use this approach as well.
   // NOTE: In host binding: We can use the 'background-color' because DOM doesn't know the Dashes (-). 
   // Always use camelCase.
-  @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent';
+  @HostBinding('style.backgroundColor') backgroundColor: string;
   // WORK: Better Directive: Using renderer for better access the DOM.  
   constructor(private eleRef: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
+    this.backgroundColor = this.defaultColor;
     // WORK: Better Directive: Using setStyle method to set the background using elementRef.   
     // this.renderer.setStyle(this.eleRef.nativeElement, 'background-color', 'blue');
   }
@@ -34,11 +36,11 @@ export class BetterHightlightDirective implements OnInit {
 
   // WORK: HostListener to host events: Used for listening official events. 
   @HostListener('mouseenter') mouseover(eventData: Event) {
-    this.backgroundColor = 'blue';
+    this.backgroundColor = this.highlightColor;
   }
 
   // WORK: HostListener to host events: on mouseleave. 
   @HostListener('mouseleave') mouseleave(eventData: Event) {
-    this.backgroundColor = 'transparent';
+    this.backgroundColor = this.defaultColor;
   }
 }
