@@ -1,3 +1,27 @@
 <div class="app--title">
     <p>{{ title }}</p>
 </div>
+
+<!-- WORK: RECAP: structural directives -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-primary" (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+            <br><br>
+            <div *ngIf="onlyOdd">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let odd of oddNumbers">
+                        {{ odd }}
+                    </li>
+                </ul>
+            </div>
+            <div *ngIf="!onlyOdd">
+                <ul class="list-group">
+                    <li class="list-group-item" *ngFor="let even of evenNumbers">
+                        {{ even }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
