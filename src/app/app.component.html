@@ -18,6 +18,17 @@
                     </li>
                 </ul>
             </div>
+            <!-- WORK: Structural directive: Behind the scene. If you notice we are not using * on ngIf like 
+            in other example. We are using ng-template which does that for us. -->
+            <ng-template [ngIf]="!onlyOdd">
+                <ul class="list-group">
+                    <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}"
+                        [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+                        *ngFor="let even of evenNumbers">
+                        {{ even }}
+                    </li>
+                </ul>
+            </ng-template>
             <div *ngIf="!onlyOdd">
                 <!-- WORK: RECAP: Attribute directives -->
                 <ul class="list-group">
@@ -33,7 +44,7 @@
                 <!-- WORK: Better directive -->
                 <!-- We are property binding to appBetterHighlight with a alias on directive
                      DefaultColor is actually a [defaultColor]= "'yellow'" -->
-                <p [appBetterHightlight]="'red'" defaultColor= "yellow">Style me with a basic highlight</p>
+                <p [appBetterHightlight]="'red'" defaultColor="yellow">Style me with a basic highlight</p>
             </div>
         </div>
     </div>
