@@ -6,8 +6,8 @@ import { Directive, Renderer2, OnInit, ElementRef, HostListener, HostBinding, In
   selector: '[appBetterHightlight]'
 })
 export class BetterHightlightDirective implements OnInit {
-@Input() defaultColor: string = 'transparent';
-@Input('appBetterHightlight') highlightColor: string = 'blue';
+  @Input() defaultColor: string = 'transparent';
+  @Input('appBetterHightlight') highlightColor: string = 'blue';
   // WORK: HostBinding: We can the previous which is a better way of accessing depending on the use case.
   // But here, We are just trying to access the style from DOM. So, we can use this approach as well.
   // NOTE: In host binding: We can use the 'background-color' because DOM doesn't know the Dashes (-). 

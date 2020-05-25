@@ -20,7 +20,7 @@
             </div>
             <!-- WORK: Structural directive: Behind the scene. If you notice we are not using * on ngIf like 
             in other example. We are using ng-template which does that for us. -->
-            <ng-template [ngIf]="!onlyOdd">
+            <!-- <ng-template [ngIf]="!onlyOdd">
                 <ul class="list-group">
                     <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}"
                         [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
@@ -28,7 +28,7 @@
                         {{ even }}
                     </li>
                 </ul>
-            </ng-template>
+            </ng-template> -->
             <div *ngIf="!onlyOdd">
                 <!-- WORK: RECAP: Attribute directives -->
                 <ul class="list-group">
@@ -45,6 +45,14 @@
                 <!-- We are property binding to appBetterHighlight with a alias on directive
                      DefaultColor is actually a [defaultColor]= "'yellow'" -->
                 <p [appBetterHightlight]="'red'" defaultColor="yellow">Style me with a basic highlight</p>
+            </div>
+            <!-- WORK: Custom structural directive -->
+            <p>Custom Structural Directive</p>
+
+            <div *ngFor="let item of [1,2,3,4,5,6]">
+                <p *appDelay="500 * item">
+                    {{item}}
+                </p>
             </div>
         </div>
     </div>

@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { BasicHighlightDirective } from './basic-highlight/basic-highlight.directive';
 import { BetterHightlightDirective } from './better-hightlight/better-hightlight.directive';
+import { DelayDirective } from './delay/delay.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicHighlightDirective,
-    BetterHightlightDirective
+    BetterHightlightDirective,
+    DelayDirective
   ],
   imports: [
     BrowserModule,
